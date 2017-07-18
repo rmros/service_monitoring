@@ -8,3 +8,5 @@ before_install:
 - docker images
 - curl ifconfig.me 
 - docker run -d clarencep/proxy-pool-docker:latest
+- python hello.py
+- docker ps -a

@@ -1,1 +1,4 @@
-print("Hello world from Travis CI")
+i = 0
+while True:
+    print i
+    i = i+1
