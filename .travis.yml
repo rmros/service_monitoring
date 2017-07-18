@@ -3,5 +3,5 @@ language: bash
 services: docker
 
 before_install:
-- docker build -t proxy_pool .
-- docker run -it proxy_pool
+- docker pull clarencep/proxy-pool-docker
+- docker ps -a
