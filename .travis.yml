@@ -9,3 +9,6 @@ before_install:
 - curl ifconfig.me 
 - docker run -d clarencep/proxy-pool-docker:latest
 - docker ps -a
+- cat /proc/cpuinfo | grep 'model name' | uniq
+- cat /proc/cpuinfo | grep processor
+- sudo lshw -c memory
