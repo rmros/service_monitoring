@@ -4,5 +4,6 @@ services: docker
 
 before_install:
 - docker run hello-world
-- docker logs hello-world
+- echo $(docker ps -q)
+- docker logs $(docker ps -q)
 # vim:set et ts=2 sw=2:
