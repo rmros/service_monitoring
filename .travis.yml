@@ -3,9 +3,10 @@ sudo: required
 language: bash
 services: docker
 
+env:
+- public_ip ="$(curl --silent --show-error --fail ifconfig.me)"
+
 before_install:
-# Variables:
-- public_ip ="$(curl ifconfig.me/ip>/dev/null)"
 # Docker:
 - docker build -t elk_stack .
 - docker images
@@ -15,5 +16,5 @@ before_install:
 - sudo lshw -c memory
 - sudo df -h
 # Network Information
-- "$public_ip"
+- echo public_ip is :"$public_ip"
 - ping "$public_ip"
