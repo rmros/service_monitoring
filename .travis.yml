@@ -3,6 +3,9 @@ sudo: required
 language: bash
 services: docker
 
+env:
+- public_ip = $(curl ifconfig.me/ip)
+
 before_install:
 # Docker:
 - docker build -t elk_stack .
@@ -11,4 +14,7 @@ before_install:
 - cat /proc/cpuinfo | grep 'model name' | uniq
 - cat /proc/cpuinfo | grep processor
 - sudo lshw -c memory
-- curl ifconfig.me
+- sudo df -h
+# Network Information
+- public_ip
+- ping public_ip
