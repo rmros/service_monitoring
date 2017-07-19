@@ -1,0 +1,20 @@
+some important essential command:
+GIT:How do I delete a Git branch both locally and remotely?
+Executive Summary
+
+$ git push origin --delete <branch_name>
+$ git branch -d <branch_name>
+If there are unmerged changes which you are confident of deleting:
+
+$ git branch -D <branch_name>
+Delete Local Branch
+
+To delete the local branch use:
+
+$ git branch -d branch_name
+
+GIT:Git: How do I list only local branches?
+Just git branch without options.
+
+GIT:Switching Branches?
+git checkout <branch>
