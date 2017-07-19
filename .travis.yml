@@ -14,4 +14,4 @@ before_install:
 - sudo lshw -c memory
 - sudo df -h
 # Network Information
-- ping curl ifconfig.me/ip
+- curl ifconfig.me/ip
