@@ -18,3 +18,5 @@ Just git branch without options.
 
 GIT:Switching Branches?
 git checkout <branch>
+
+### https://try.github.io/ is good site for GIT
