@@ -3,10 +3,9 @@ sudo: required
 language: bash
 services: docker
 
-env:
-- public_ip ="$(curl ifconfig.me/ip>/dev/null)"
-
 before_install:
+# Variables:
+- public_ip ="$(curl ifconfig.me/ip>/dev/null)"
 # Docker:
 - docker build -t elk_stack .
 - docker images
