@@ -3,8 +3,6 @@ sudo: required
 language: bash
 services: docker
 
-env:
-- public_ip =$(curl ifconfig.me/ip)
 
 before_install:
 # Docker:
@@ -16,5 +14,4 @@ before_install:
 - sudo lshw -c memory
 - sudo df -h
 # Network Information
-- echo public_ip is :"$public_ip"
-- ping "$public_ip"
+- ping curl ifconfig.me/ip
