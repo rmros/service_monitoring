@@ -14,6 +14,5 @@ before_install:
 - sudo lshw -c memory
 - sudo df -h
 # Network Information
-- public_ip ="$(curl --silent --show-error --fail ifconfig.me)"
-- echo public_ip is :"$public_ip"
-- ping "$public_ip"
+- current_ip="$(curl --silent --show-error --fail ipecho.net/plain)"- echo public_ip is :"$public_ip"
+- echo "IP :$current_ip"
