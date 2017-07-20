@@ -18,11 +18,11 @@ ENV REFRESHED_AT 2017-07-19
 
 ### i am using http://www.bogotobogo.com Article about ELK 
 ### Java install
-RUN sudo apt-get update
-RUN sudo apt-get install software-properties-common
+RUN sudo apt-get -y update
+RUN sudo apt-get -y install software-properties-common
 RUN sudo add-apt-repository ppa:webupd8team/java
-RUN sudo apt-get update
-RUN sudo apt-get install oracle-java8-installer
+RUN sudo apt-get -y update
+RUN sudo apt-get -y install oracle-java8-installer
 RUN java -version
 RUN readlink -f $(which javac)
 ### Download / Install Elastic Search
