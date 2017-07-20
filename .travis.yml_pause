@@ -1,0 +1,19 @@
+
+sudo: required
+language: bash
+services: docker
+
+
+before_install:
+# Docker:
+- docker build -t elk_stack .
+- docker images
+# HardWare Usage:
+- cat /proc/cpuinfo | grep 'model name' | uniq
+- cat /proc/cpuinfo | grep processor
+- sudo lshw -c memory
+- sudo df -h
+# Network Information
+- current_ip="$(curl --silent --show-error --fail ipecho.net/plain)"
+- echo "Public IP :$current_ip"
+- ping "$current_ip"
