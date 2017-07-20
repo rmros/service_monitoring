@@ -7,7 +7,7 @@
 # Run with:
 # docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk <repo-user>/elk
 
-FROM phusion/baseimage
+FROM ubuntu:trusty
 MAINTAINER Ramin Rostami rm.rostami@gmail.com
 ENV REFRESHED_AT 2017-07-19
 
