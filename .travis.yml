@@ -16,4 +16,3 @@ before_install:
 # Network Information
 - current_ip="$(curl --silent --show-error --fail ipecho.net/plain)"
 - echo "Public IP :$current_ip"
-- ping "$current_ip"
