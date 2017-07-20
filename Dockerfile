@@ -18,7 +18,7 @@ ENV REFRESHED_AT 2017-07-19
 
 ### i am using http://www.bogotobogo.com Article about ELK 
 ### Java install
-
+RUN apt-get update 
 ### Download / Install Elastic Search
 
 ### Configuring Elastic
