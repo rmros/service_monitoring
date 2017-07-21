@@ -18,6 +18,8 @@ ENV REFRESHED_AT 2017-07-21
 
 ENV GOSU_VERSION 1.8
 
+
+
 ARG DEBIAN_FRONTEND=noninteractive
 RUN set -x \
  && apt-get update -qq \
@@ -56,3 +58,7 @@ RUN mkdir ${ES_HOME} \
  && mkdir -p /var/log/elasticsearch /etc/elasticsearch /etc/elasticsearch/scripts /var/lib/elasticsearch \
  && chown -R elasticsearch:elasticsearch ${ES_HOME} /var/log/elasticsearch /var/lib/elasticsearch /etc/elasticsearch
 
+ADD ./elasticsearch-init /etc/init.d/elasticsearch
+RUN sed -i -e 's#^ES_HOME=$#ES_HOME='$ES_HOME'#' /etc/init.d/elasticsearch \
+ && chmod +x /etc/init.d/elasticsearch
+RUN curl -XGET 'localhost:9200'
