@@ -5,8 +5,9 @@ services: docker
 
 before_install:
 # Docker:
-- docker build -p 9200:9200 -t elk_stack .
+- docker build -t elk_stack .
 - docker images
+- docker ps -a
 # HardWare Usage:
 - cat /proc/cpuinfo | grep 'model name' | uniq
 - cat /proc/cpuinfo | grep processor
