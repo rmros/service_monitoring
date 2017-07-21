@@ -43,9 +43,15 @@ RUN sudo update-alternatives --config java && \
 	java -version && \
 	echo java installed - ok!
 ### Download / Install Elastic Search
-
-### Configuring Elastic
-
+#   Download and install the package
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb && \
+    sudo dpkg -i elasticsearch-5.5.0.deb
+#   Download and install the Public Signing Key and start:
+RUN wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && \
+    sudo systemctl enable elasticsearch.service && \
+    sudo systemctl start elasticsearch.service
+#  To check the version, simply issue the following: 
+RUN curl -XGET 'localhost:9200'
 ### Configuring Elastic
 
 ### Checking the cluster health
