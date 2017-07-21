@@ -36,8 +36,8 @@ RUN JAVA_HOME=/usr/lib/jvm/java-8-oracle && \
     export PATH
 #   OpenJDK:
 RUN sudo add-apt-repository ppa:openjdk-r/ppa && \
-    sudo apt-get update && \
-    sudo apt-get install openjdk-8-jdk
+    sudo apt-get update -y  && \
+    sudo apt-get install -y openjdk-8-jdk
 #	Run the following command to set the default Java
 RUN sudo update-alternatives --config java && \
 	java -version && \
