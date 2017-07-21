@@ -15,3 +15,5 @@ before_install:
 # Network Information
 - current_ip="$(curl --silent --show-error --fail ipecho.net/plain)"
 - echo "Public IP :$current_ip"
+# Elastic Search TEST
+- curl -XGET 'localhost:9200'

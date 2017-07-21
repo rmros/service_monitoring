@@ -61,4 +61,3 @@ RUN mkdir ${ES_HOME} \
 ADD ./elasticsearch-init /etc/init.d/elasticsearch
 RUN sed -i -e 's#^ES_HOME=$#ES_HOME='$ES_HOME'#' /etc/init.d/elasticsearch \
  && chmod +x /etc/init.d/elasticsearch
-RUN curl -XGET 'localhost:9200'
