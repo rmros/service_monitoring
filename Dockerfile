@@ -29,7 +29,19 @@ RUN apt-get update && \
     sudo apt-get clean && \
 	java -version && \
 	readlink -f $(which javac)
-
+#   To set JAVA_HOME in .bashrc:
+RUN JAVA_HOME=/usr/lib/jvm/java-8-oracle && \
+    export JAVA_HOME && \
+    PATH=$JAVA_HOME/bin:$PATH && \
+    export PATH
+#   OpenJDK:
+RUN sudo add-apt-repository ppa:openjdk-r/ppa && \
+    sudo apt-get update && \
+    sudo apt-get install openjdk-8-jdk
+#	Run the following command to set the default Java
+RUN sudo update-alternatives --config java && \
+	java -version && \
+	echo java installed - ok!
 ### Download / Install Elastic Search
 
 ### Configuring Elastic
