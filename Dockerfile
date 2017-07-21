@@ -61,3 +61,19 @@ RUN mkdir ${ES_HOME} \
 ADD ./elasticsearch-init /etc/init.d/elasticsearch
 RUN sed -i -e 's#^ES_HOME=$#ES_HOME='$ES_HOME'#' /etc/init.d/elasticsearch \
  && chmod +x /etc/init.d/elasticsearch
+
+
+
+
+
+###############################################################################
+#                                   START
+###############################################################################
+
+ADD ./start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+EXPOSE 9200 9300
+VOLUME /var/lib/elasticsearch
+
+CMD [ "/usr/local/bin/start.sh" ]
