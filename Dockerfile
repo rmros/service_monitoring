@@ -44,8 +44,8 @@ RUN sudo update-alternatives --config java && \
 	echo java installed - ok!
 ### Download / Install Elastic Search
 #   Download and install the package
-RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb && \
-    sudo dpkg -i elasticsearch-5.5.0.deb
+RUN wget wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.4/elasticsearch-2.4.4.deb && \
+    sudo dpkg -i elasticsearch-2.4.4.deb
 #   Download and install the Public Signing Key and start:
 RUN wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && \
     sudo systemctl enable elasticsearch.service && \
