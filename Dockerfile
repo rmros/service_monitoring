@@ -7,7 +7,7 @@
 # Run with:
 # docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk <repo-user>/elk
 
-FROM ubuntu:trusty
+FROM phusion/baseimage
 MAINTAINER Ramin Rostami rm.rostami@gmail.com
 ENV REFRESHED_AT 2017-07-19
 
@@ -18,13 +18,18 @@ ENV REFRESHED_AT 2017-07-19
 
 ### i am using http://www.bogotobogo.com Article about ELK 
 ### Java install
-RUN sudo apt-get -y update
-RUN sudo apt-get -y install software-properties-common
-RUN sudo add-apt-repository ppa:webupd8team/java
-RUN sudo apt-get -y update
-RUN sudo apt-get -y install oracle-java8-installer
-RUN java -version
-RUN readlink -f $(which javac)
+RUN apt-get update && \
+	apt-get upgrade -y && \
+	apt-get install -y  software-properties-common && \
+	add-apt-repository ppa:webupd8team/java -y && \
+	apt-get update && \
+	apt-get install -y oracle-java8-installer && \
+	rm -rf /var/lib/apt/lists/* && \
+	rm -rf /var/cache/oracle-jdk8-installer && \
+	apt-get clean && \
+	java -version && \
+	readlink -f $(which javac)
+
 ### Download / Install Elastic Search
 
 ### Configuring Elastic
