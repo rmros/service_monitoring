@@ -77,4 +77,3 @@ EXPOSE 9200 9300
 VOLUME /var/lib/elasticsearch
 
 CMD [ "/usr/local/bin/start.sh" ]
-RUN curl -XGET 'localhost:9200'
