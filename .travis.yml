@@ -17,6 +17,7 @@ before_install:
 # Network Information
 - current_ip="$(curl --silent --show-error --fail ipecho.net/plain)"
 - echo "Public IP :$current_ip"
+- ifconfig
 # Elastic Search TEST
 script:
 - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
