@@ -7,8 +7,9 @@ before_install:
 # Docker:
 - docker build -t elk_image .
 - docker images
-- docker run -d --name elk_container -p 9300:9300 -p 9200:9200   elk_image
+- docker run -d --name elk_container -p 9200:9200 -p 9300:9300 --rm elk_image
 - docker ps -a
+- docker logs elk_container
 # HardWare Usage:
 - cat /proc/cpuinfo | grep 'model name' | uniq
 - cat /proc/cpuinfo | grep processor
@@ -20,7 +21,6 @@ before_install:
 - ifconfig
 # Elastic Search TEST
 script:
-- docker logs elk_container
 - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
 - curl --head http://127.0.0.1:9200
 - curl --head http://www.yourdomain.com/
