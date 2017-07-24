@@ -10,6 +10,9 @@ before_install:
 - docker run -d --name elk_container -p 9200:9200 -p 9300:9300 --rm elk_image
 - docker ps -a
 - docker logs elk_container
+- docker exec elk_container sudo service elasticsearch status
+- docker exec elk_container curl --head http://127.0.0.1:9200
+- docker exec elk_container sudo netstat -nlp | grep LISTEN
 # HardWare Usage:
 - cat /proc/cpuinfo | grep 'model name' | uniq
 - cat /proc/cpuinfo | grep processor
