@@ -77,4 +77,4 @@ EXPOSE 9200 9300
 # Define mountable directories
 VOLUME /var/lib/elasticsearch
 
-CMD [ "/usr/local/bin/start.sh" ]
+#CMD [ "/usr/local/bin/start.sh" ]
